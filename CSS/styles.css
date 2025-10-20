@@ -31,7 +31,7 @@ body {
   align-items: center;
   padding: 0.5rem 2rem;
   background: #e7e7e7de;
-  /* box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6); */
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
   z-index: 100;
   white-space: nowrap;
   transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
@@ -82,11 +82,11 @@ body {
 }
 
 .header.transparent:hover {
-  background: #e7e7e7;
+  background: #e7e7e7de;
 }
 
 .header.transparent:hover {
-  background: #e7e7e7;
+  background: #e7e7e7de;
   color: #20B7E1;
 }
 
@@ -114,6 +114,10 @@ body {
   width: 100%;
   background: #e7e7e7de;
   /* box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6); */
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .extraInfo {
@@ -144,6 +148,13 @@ body {
 
 .dropLinkItem:hover {
   color: #225054;
+}
+
+.header-container:has(.nav-item:hover) .dropdown,
+.dropdown:hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
 }
 
 .video {
@@ -194,7 +205,7 @@ body {
 .sect {
   width: 100%;
   height: 3rem;
-  background-color: #e7e7e7;
+  background-color: #e7e7e7de;
   position: relative;
   /* z-index: 2; */
 }
@@ -244,7 +255,7 @@ body {
 }
 
 .divider:hover {
-  background: #e7e7e7;
+  background: #e7e7e7de;
 }
 
 .divider:hover .pictureDividers {
