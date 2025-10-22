@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Arial", sans-serif;
+  font-family: "Arial", sans-serif;
 }
 .name {
   align-items: left;
@@ -267,4 +267,5 @@ body {
 .divider:hover h1 {
   color: #20B7E1;
 }
+
 
