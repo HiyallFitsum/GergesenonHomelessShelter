@@ -52,6 +52,23 @@ body {
 /* prevents content overlap */
 body {
   padding-top: 6rem;
+
+/* Page background rectangle that starts after the intro tint */
+.page-bg {
+  position: absolute;
+  top: 100vh; /* start right after the viewport-height intro */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 10%); /* subtle background */
+  z-index: 0; /* behind content */
+}
+
+/* Ensure main content layers above the page background */
+header, .container, section, .founder-card, .mission-container, .values-grid {
+  position: relative;
+  z-index: 2;
+}
 }
 
 .logo {
@@ -266,116 +283,6 @@ body {
 
 .divider:hover h1 {
   color: #20B7E1;
-}
-
-
-body {
-  margin: 0;
-  font-family: Arial", sans-serif;
-}
-.name {
-  align-items: left;
-}
-
-.mainTitle{
-  color: black; 
-  font-size: 1.75rem; 
-  margin: 0; 
-  margin-right: 5rem;
-}
-
-.sideTitle{
-  color: grey; 
-  font-size: 1.25rem; 
-  margin: 0; 
-  margin-right: 5rem;
-}
-
-.header {
-  height: 6rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: stretch;
-  align-items: center;
-  padding: 0.5rem 2rem;
-  background: #e7e7e7de;
-  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
-  z-index: 100;
-  white-space: nowrap;
-  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
-}
-
-.header.transparent {
-  background: rgba(255, 255, 255, 0); /* fully transparent */
-  box-shadow: none;
-}
-
-.header.transparent .name .mainTitle,
-.header.transparent .name .sideTitle,
-.header.transparent .nav-item,
-.header.transparent .nav-divider {
-  color: #ffffff;
-}
-
-/* prevents content overlap */
-body {
-  padding-top: 6rem;
-}
-
-.logo {
-  width: 5rem;
-  height: 5rem;
-}
-
-.nav-links {
-  display: flex;
-  gap: 5rem;
-  font-size: 1.5rem;
-}
-
-.nav-item {
-  font-weight: 900;
-  color: #20B7E1;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nav-divider {
-  font-weight: 900;
-  color: #007ea1;
-}
-
-.nav-item:hover {
-  color: #225054;
-}
-
-.header.transparent:hover {
-  background: #e7e7e7de;
-}
-
-.header.transparent:hover {
-  background: #e7e7e7de;
-  color: #20B7E1;
-}
-
-.header.transparent:hover .nav-item,
-.header.transparent:hover .nav-divider{
-  color: #20B7E1;
-}
-
-.header.transparent:hover .name .mainTitle{
-  color: black;
-}
-
-.header.transparent:hover .name .sideTitle {
-  color: grey;
-}
-
-.header.transparent .nav-item:hover {
-  color: #225054;
 }
 
 .dropdown {
@@ -605,7 +512,7 @@ p { margin: 0 0 1rem 0; }
 /* Mission Section */
 .mission-section {
   padding: 4rem 0;
-  background: white;
+  background: rgb(248, 245, 245,0.9);
 }
 
 .mission-container {
@@ -633,7 +540,7 @@ p { margin: 0 0 1rem 0; }
 /* Impact Section */
 .impact-section { 
   padding: 6rem 0;
-  background: #f8fafc;
+  background: rgb(248, 245, 245,0.9);
 }
 
 .section-header {
@@ -671,7 +578,7 @@ p { margin: 0 0 1rem 0; }
 /* Values Section */
 .values-section {
   padding: 6rem 0;
-  background: white;
+  background: rgb(248, 245, 245,0.9);
 }
 
 .values-grid {
@@ -702,8 +609,8 @@ p { margin: 0 0 1rem 0; }
 .timeline {
   position: relative;
   max-width: 800px;
-  margin: 4rem auto;
-  padding: 0 1.5rem;
+  margin: 2rem auto 0 auto;
+  padding: 0 1.5rem 0 1.5rem;
 }
 
 .timeline::before {
@@ -737,10 +644,32 @@ p { margin: 0 0 1rem 0; }
   font-weight: 700;
 }
 
+/* Journey section background rectangle using pseudo-element */
+.journey-section {
+  position: relative;
+  z-index: 2;
+}
+.journey-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgb(248, 245, 245,0.9);
+  z-index: 0; /* behind journey content */
+}
+
+/* Ensure journey children are above the pseudo background */
+.journey-section > * {
+  position: relative;
+  z-index: 3;
+}
+
 /* Founder Section */
 .founder-section {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, #e0f2fe 0%, white 100%);
+  padding: 2rem 0 0 0;
+  background: rgb(248, 245, 245,0.9) 0%;
 }
 
 .founder-card {
