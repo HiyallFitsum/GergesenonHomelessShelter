@@ -10,14 +10,14 @@ body {
   color: black; 
   font-size: 1.75rem; 
   margin: 0; 
-  margin-right: 5rem;
+  margin-right: 2rem;
 }
 
 .sideTitle{
   color: grey; 
   font-size: 1.25rem; 
   margin: 0; 
-  margin-right: 5rem;
+  margin-right: 2rem;
 }
 
 .header {
@@ -27,9 +27,9 @@ body {
   left: 0;
   right: 0;
   display: flex;
-  justify-content: stretch;
+  justify-content: flex-start;
   align-items: center;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   background: #e7e7e7de;
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
   z-index: 100;
@@ -57,12 +57,14 @@ body {
 .logo {
   width: 5rem;
   height: 5rem;
+  margin-right: 1rem;
 }
 
 .nav-links {
   display: flex;
-  gap: 5rem;
+  gap: 2rem;
   font-size: 1.5rem;
+  margin-left: auto;
 }
 
 .nav-item {
@@ -75,6 +77,53 @@ body {
 .nav-divider {
   font-weight: 900;
   color: #007ea1;
+}
+
+@media screen and (max-width: 1200px) {
+  .nav-links {
+    gap: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .mainTitle {
+    font-size: 1.4rem;
+    margin-right: 2rem;
+  }
+  
+  .sideTitle {
+    font-size: 1rem;
+    margin-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .mainTitle {
+    font-size: 1.1rem;
+    margin-right: 1rem;
+  }
+  
+  .sideTitle {
+    font-size: 0.8rem;
+    margin-right: 1rem;
+  }
+  
+  .nav-divider {
+    margin: 0 0.2rem;
+  }
 }
 
 .nav-item:hover {
