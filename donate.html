@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Gergesenon Homeless Shelter</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/donate.css">
+</head>
+<body>
+        <div class="header-container">
+            <header class="header">
+                <a href="index.html"> 
+                    <img src="Images/gergesenonLogo.png" alt="Gergesenon Logo" class="logo" style="margin-right: 1.5rem;">
+                </a>
+                <div class="name">
+                    <h1 class="mainTitle">Gergesenon Mental Institute</h1>
+                    <h1 class="sideTitle">Center for Support and Rehabilitation</h1>
+                </div>
+        
+                <nav class="nav-links">
+                    <a class="nav-divider">|</a>
+                    <a href="about.html" class="nav-item">WHO WE ARE</a>
+                    <a class="nav-divider">|</a>
+                    <a href="#whatWeDo.html" class="nav-item">WHAT WE DO</a>
+                    <a class="nav-divider">|</a>
+                    <a href="#volunteer.html" class="nav-item">VOLUNTEER</a>
+                    <a class="nav-divider">|</a>
+                    <a href="donate.html" class="nav-item">SUPPORT GERGESENON</a>
+                </nav>
+            </header>
+
+            <div class="dropdown">
+                <!-- kept empty here; about page populates dropdown content separately -->
+            </div>
+            </div>
+
+            <div class="intro-section">
+                <video autoplay muted loop playsinline class="video">
+                    <source src="Videos/gergesenonCarRide.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <div class="overlay"></div>
+
+                <div class="intro-text" style="top: 25%;">
+                    <p class="initialText">Support Gergesenon Homeless Shelter</p>
+                </div>
+            </div>
+
+            
+
+                <!-- place donation bubble inside hero so it's visible above overlay -->
+                <div class="donation-hero-wrap">
+                    <div class="donation-form-container">
+                            <div class="donation-bubble">
+                                    <!-- PayPal hosted button form centered in the bubble -->
+                                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                        <input type="hidden" name="cmd" value="_s-xclick" />
+                                        <input type="hidden" name="hosted_button_id" value="NBL2Q7Z5RAD98" />
+                                        <input type="hidden" name="currency_code" value="USD" />
+                                        <input type="image" src="Images/donate-btn.png" border="0" name="submit" title="Donate with PayPal" alt="Donate" />
+                                    </form>
+                            </div>
+                    </div>
+                </div>
+            </main>
+
+            <main class="donation-container">
+                    <div class="donation-header" style="display:none;">
+                            <h1>Support Gergesenon Homeless Shelter</h1>
+                            <p>Your donation helps us provide shelter, support, and hope to those in need.</p>
+                    </div>
+
+                    <div class="donation-footer">
+                            <p>Your donation is secure and encrypted. Tax receipts will be emailed upon successful donation.</p>
+                            <div class="secure-badges">
+                                    <img src="Images/secure-payment.png" alt="Secure Payment">
+                            </div>
+                    </div>
+            </main>
