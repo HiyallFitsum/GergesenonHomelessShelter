@@ -81,7 +81,6 @@
     <div class="mission-container">
       <div class="mission-content" data-aos="fade-right">
         <h2>Our Mission</h2>
-        <p class="lead">Providing compassionate care and rehabilitation for mental health in Ethiopia.</p>
         <p>At Gergesenon Mental Rehabilitation Center, we believe in the dignity and potential of every individual. Our comprehensive approach combines professional mental health care with cultural sensitivity and community integration.</p>
         <p>Through dedicated support and innovative rehabilitation programs, we help individuals recover and reintegrate into their communities with dignity and purpose.</p>
       </div>
@@ -125,7 +124,6 @@
   <section class="values-section">
     <div class="section-header" data-aos="fade-up">
       <h2>Our Core Values</h2>
-      <p>The principles that guide our work and impact</p>
     </div>
     <div class="values-grid">
       <div class="value-card" data-aos="fade-up" data-aos-delay="100">
@@ -154,9 +152,9 @@
 
   
   <!-- Founder Section -->
-  <section id="founder" class="founder-section" data-aos="fade-up" data-aos-delay="100">
-    <div class="founder-card" data-aos="fade-up" data-aos-delay="200">
-      <div class="founder-content">
+  <section id="founder" class="founder-section">
+    <div class="founder-card">
+      <div class="founder-content" data-aos="fade-up" data-aos-offset="100" data-aos-duration="600">
         <div class="founder-header">
           <img src="Images/gergesenonMeles.jpg" alt="Meles Gergesenon" class="founder-photo">
           <div class="founder-info">
@@ -165,7 +163,6 @@
             <p class="founder-bio">Driven by compassion and a vision for accessible mental health care, Meles established Gergesenon Mental Rehabilitation Center to provide shelter, treatment, and dignity for those facing severe mental challenges. His leadership emphasizes culturally-sensitive care and community integration.</p>
           </div>
         </div>
-       
       </div>
     </div>
   </section>
@@ -176,7 +173,13 @@
   <script src="js/i18n.js"></script>
   <script>
     // Initialize AOS (if available)
-    if (window.AOS) AOS.init({ duration: 800, once: true, offset: 100 });
+    if (window.AOS) AOS.init({ 
+      duration: 600,
+      once: true, 
+      offset: 50,
+      easing: 'ease-out',
+      delay: 100
+    });
 
     // Header transparency: null-safe
     (function () {
