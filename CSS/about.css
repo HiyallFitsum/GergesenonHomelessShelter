@@ -79,9 +79,10 @@ header, .container, section, .founder-card, .mission-container, .values-grid {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
-  font-size: 1.5rem;
+  gap: 1.4rem;
+  font-size: 1.2rem;
   margin-left: auto;
+  align-items: center;
 }
 
 .nav-item {
@@ -89,6 +90,38 @@ header, .container, section, .founder-card, .mission-container, .values-grid {
   color: #20B7E1;
   text-decoration: none;
   transition: color 0.3s ease;
+}
+
+.translate-container {
+  margin-left: 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Google Translate customization */
+.goog-te-gadget {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+  padding: 0.3rem;
+  border: 2px solid #20B7E1;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #20B7E1;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.goog-te-banner-frame {
+  display: none;
+}
+
+body {
+  top: 0 !important;
 }
 
 .nav-divider {
@@ -513,21 +546,55 @@ p { margin: 0 0 1rem 0; }
 
 /* Mission Section */
 .mission-section {
-  padding: 4rem 0;
+  padding: 6rem 0;
   background: rgb(248, 245, 245,0.9);
 }
 
 .mission-container {
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 .mission-content {
   flex: 1;
+}
+
+.mission-content h2 {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.mission-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: #20B7E1;
+}
+
+.mission-content .lead {
+  font-size: 1.4rem;
+  color: #20B7E1;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.mission-content p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
 }
 
 .mission-image {
@@ -536,7 +603,13 @@ p { margin: 0 0 1rem 0; }
 
 .mission-image img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.mission-image img:hover {
+  transform: scale(1.02);
 }
 
 /* Impact Section */
@@ -547,8 +620,36 @@ p { margin: 0 0 1rem 0; }
 
 .section-header {
   max-width: 700px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 4rem;
   text-align: center;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #20B7E1;
+}
+
+.section-header p {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .stats-grid {
@@ -561,20 +662,31 @@ p { margin: 0 0 1rem 0; }
 
 .stat-item {
   background: white;
-  padding: 2rem 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(32,183,225,0.1);
 }
 
 .stat-item:hover {
   transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
 }
 
 .stat-number {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #20B7E1;
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: #444;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 /* Values Section */
@@ -670,8 +782,9 @@ p { margin: 0 0 1rem 0; }
 
 /* Founder Section */
 .founder-section {
-  padding: 2rem 0 0 0;
+  padding: 2rem 0 6rem 0;  /* Added bottom padding */
   background: rgb(248, 245, 245,0.9) 0%;
+  min-height: 50vh;  /* Ensure section fills viewport height */
 }
 
 .founder-card {
@@ -681,6 +794,8 @@ p { margin: 0 0 1rem 0; }
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   padding: 3rem 2rem;
+  position: relative; /* Ensure card stays above background */
+  z-index: 1;
 }
 
 .founder-header {
