@@ -4,8 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate - Gergesenon Homeless Shelter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="CSS/donate.css">
+
+    <!-- Google Translate Integration -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'am,en', // am for Amharic, en for English
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
         <div class="header-container">
@@ -27,6 +41,10 @@
                     <a href="#volunteer.html" class="nav-item">VOLUNTEER</a>
                     <a class="nav-divider">|</a>
                     <a href="donate.html" class="nav-item">SUPPORT GERGESENON</a>
+                    <a class="nav-divider">|</a>
+                    <div class="translate-container">
+                      <div id="google_translate_element"></div>
+                    </div>
                 </nav>
             </header>
 
