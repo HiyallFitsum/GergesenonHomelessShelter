@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What We Do - Gergesenon Homeless Shelter</title>
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/about.css">
+  <link rel="stylesheet" href="CSS/whatWeDo.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <div class="header-container">
+    <header class="header">
+      <a href="index.html"> 
+        <img src="Images/gergesenonLogo.png" alt="Gergesenon Logo" class="logo" style="margin-right: 1.5rem;">
+      </a>
+      <div class="name">
+        <h1 class="mainTitle">Gergesenon Mental Institute</h1>
+        <h1 class="sideTitle">Center for Support and Rehabilitation</h1>
+      </div>
+      <nav class="nav-links">
+        <a class="nav-divider">|</a>
+        <a href="about.html" class="nav-item">WHO WE ARE</a>
+        <a class="nav-divider">|</a>
+        <a href="whatWeDo.html" class="nav-item">WHAT WE DO</a>
+        <a class="nav-divider">|</a>
+        <a href="volunteer.html" class="nav-item">VOLUNTEER</a>
+        <a class="nav-divider">|</a>
+        <a href="donate.html" class="nav-item">SUPPORT GERGESENON</a>
+        <a class="nav-divider">|</a>
+        <div class="translate-container">
+          <div id="google_translate_element"></div>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+    <div class="intro-section">
+      <!-- use contained hero image (about.css .hero-image overrides global .video) -->
+      <img src="Images/gergesenonAbout.jpg" alt="Gergesenon center exterior" class="video hero-image">
+
+      <div class="overlay"></div>
+
+      <div class="intro-text">
+        <p class="initialText">What We Do.</p>
+      </div>
+    </div>
+
+    <!-- Page background rectangle that starts where the intro tint ends -->
+    <div class="page-bg" aria-hidden="true"></div>
+
+  <!-- semi-transparent white box that overlaps the lower hero and contains the gallery -->
+  <div class="white-box">
+    <main class="container" style="margin-top: 7rem;">
+      <div class="section-header" style="margin-bottom:1.5rem;">
+        <h2 class="page-title">Gallery</h2>
+      </div>
+      <div id="gallery" class="gallery-grid"></div>
+    </main>
+  </div>
+
+  <!-- styles moved to CSS/whatWeDo.css -->
+  <script>
+    // To update the gallery, add/edit items in this array:
+    const galleryItems = [
+    {
+        type: 'image',
+        src: 'Images/gergesenonAbout.jpg',
+        desc: '11/9/2025 Front entrance of Gergesenon'
+      },
+      
+      {
+        type: 'image',
+        src: 'Images/gergesenonEthiopiaMentalDisorder.jpg',
+        desc: '11/9/20205 Mental health awareness in Ethiopia'
+      },
+      {
+        type: 'video',
+        src: 'Videos/gergesenonOutisde.mp4',
+        desc: '11/9/2025 Preview of Entoto Hill'
+      },
+      {
+        type: 'image',
+        src: 'Images/gergesenonGroup.jpg',
+        desc: '11/8/2025 Sponsership with ethio telecom'
+      }
+      // Example:
+      // { type: 'image', src: 'Images/anotherPhoto.jpg', desc: 'Description here' },
+      // { type: 'video', src: 'Videos/exampleVideo.mp4', desc: 'Video description' }
+    ];
+
+    function renderGalleryItem(item, index) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'gallery-item';
+      wrapper.setAttribute('data-index', index);
+
+      // media element
+      let mediaEl;
+      if (item.type === 'image') {
+        mediaEl = document.createElement('img');
+        mediaEl.className = 'gallery-media';
+        mediaEl.src = item.src;
+        mediaEl.alt = item.desc || '';
+      } else if (item.type === 'video') {
+        mediaEl = document.createElement('video');
+        mediaEl.className = 'gallery-media';
+        mediaEl.src = item.src;
+        mediaEl.setAttribute('aria-hidden', 'true');
+        mediaEl.muted = true;
+        mediaEl.playsInline = true;
+      }
+
+      // meta block
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      const title = document.createElement('h3');
+      title.className = 'gallery-title';
+      title.textContent = item.desc || ' ';
+      const sub = document.createElement('p');
+      sub.className = 'gallery-sub';
+      sub.textContent = item.type === 'video' ? 'Video' : 'Image';
+      meta.appendChild(title);
+      meta.appendChild(sub);
+
+      if (mediaEl) wrapper.appendChild(mediaEl);
+      wrapper.appendChild(meta);
+
+      // click opens lightbox
+      wrapper.addEventListener('click', () => openLightbox(item));
+
+      return wrapper;
+    }
+
+    function renderGallery() {
+      const gallery = document.getElementById('gallery');
+      gallery.innerHTML = '';
+      galleryItems.forEach((item, i) => {
+        gallery.appendChild(renderGalleryItem(item, i));
+      });
+    }
+
+    // Lightbox functionality
+    function openLightbox(item) {
+      const lb = document.querySelector('.lightbox');
+      const mediaContainer = lb.querySelector('.lightbox-media-container');
+      const meta = lb.querySelector('.lightbox-meta p');
+      mediaContainer.innerHTML = '';
+
+      if (item.type === 'image') {
+        const img = document.createElement('img');
+        img.className = 'lightbox-media';
+        img.src = item.src;
+        mediaContainer.appendChild(img);
+      } else if (item.type === 'video') {
+        const vid = document.createElement('video');
+        vid.className = 'lightbox-media';
+        vid.src = item.src;
+        vid.controls = true;
+        vid.autoplay = true;
+        mediaContainer.appendChild(vid);
+      }
+
+      meta.textContent = item.desc || '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lb = document.querySelector('.lightbox');
+      if (!lb) return;
+      lb.classList.remove('open');
+      const mediaContainer = lb.querySelector('.lightbox-media-container');
+      mediaContainer.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    // close on backdrop or close button
+    document.addEventListener('click', function(e) {
+      const lb = document.querySelector('.lightbox');
+      if (!lb) return;
+      if (lb.classList.contains('open')) {
+        if (e.target.classList.contains('lightbox') || e.target.classList.contains('lightbox-close')) {
+          closeLightbox();
+        }
+      }
+    });
+
+    // close on ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    window.addEventListener('DOMContentLoaded', renderGallery);
+  </script>
+  <!-- Lightbox modal -->
+  <div class="lightbox" role="dialog" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="Close">✕</button>
+      <div class="lightbox-media-container"></div>
+      <div class="lightbox-meta"><p></p></div>
+    </div>
+  </div>
+</body>
+</html>
