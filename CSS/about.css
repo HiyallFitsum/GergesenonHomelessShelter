@@ -61,7 +61,7 @@ body {
   right: 0;
   bottom: 0;
   background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 10%); /* subtle background */
-  z-index: 0; /* behind content */
+  z-index: 1; /* sit above the hero image (z-index:0) but below main content (z-index:2) */
 }
 
 /* Ensure main content layers above the page background */
