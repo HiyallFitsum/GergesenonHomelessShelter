@@ -133,7 +133,7 @@
   /* content container that visually overlaps the hero by using negative margin
      and internal padding. Keeps the gallery interactive while matching About page. */
   position: relative;
-  margin-top: -80px; /* reduce overlap */
+  margin-top: 0px; /* reduce overlap */
   padding: 36px 0 24px; /* shrink padding so box is tighter */
   background: rgba(255,255,255,0.96);
   z-index: 1; /* sits above hero (z-index:0) but container (.container) inside uses z-index:2 from about.css, so content remains above */
