@@ -56,7 +56,7 @@ body {
 /* Page background rectangle that starts after the intro tint */
 .page-bg {
   position: absolute;
-  top: 100vh; /* start right after the viewport-height intro */
+  top: 70vh; /* moved up so the cream background appears higher on the page */
   left: 0;
   right: 0;
   bottom: 0;
