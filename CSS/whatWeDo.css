@@ -1,28 +1,28 @@
-/* Styles specific to What We Do gallery page */
+/* Gallery Styles */
 
-/* Page title white background to match About -> "Our Mission" */
+/* Page title styling */
 .section-header .page-title {
   display: inline-block;
   padding: 0.3rem 0.9rem;
   border-radius: 8px;
-  font-size: 1.6rem; /* slightly smaller */
+  font-size: 1.6rem;
   color: #1a1a1a;
   margin: 0;
   position: relative;
-  z-index: 3; /* ensure it sits above .page-bg */
+  z-index: 3;
 }
 .section-header { text-align: center; }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
-  max-width: 1200px; /* ensures max 3 items per row */
+  max-width: 1200px;
   gap: 1rem;
   margin: 1.25rem auto 0;
   align-items: start;
 }
 
-/* note: .page-bg from CSS/about.css provides the persistent fade-to-white effect; no white-band needed */
+/* note: .page-bg from about.css provides the fade-to-white effect */
 .gallery-item {
   background: #fff;
   border-radius: 12px;
@@ -30,8 +30,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* make box width fit media */
+  align-items: stretch;
   transition: transform 0.28s cubic-bezier(.2,.8,.2,1), box-shadow 0.28s;
+  position: relative;
 }
 .gallery-item:hover {
   transform: translateY(-4px);
@@ -41,22 +42,26 @@
   width: 100%;
   display: block;
   background: #f0f4f8;
-  max-height: 220px; /* cap general media height */
+  max-height: 220px;
 }
 
-/* Images: show full image (contain) so thumbnails aren't cropped; videos remain cover-style thumbnails. */
+/* Images use contain; videos use cover for thumbnails */
 .gallery-item img.gallery-media {
   object-fit: contain;
   width: 100%;
   height: auto;
-  max-height: 220px; /* keep thumbnails smaller */
+  max-height: 220px;
 }
 .gallery-item video.gallery-media {
   object-fit: cover;
   width: 100%;
   height: 140px;
   max-height: 140px;
+  background: #000;
 }
+
+
+
 .gallery-item .meta {
   padding: 0.45rem 0.75rem 0.65rem;
 }
@@ -72,7 +77,7 @@
   margin: 0;
 }
 .gallery-desc {
-  display: none; /* replaced by structured meta (title/sub) */
+  display: none;
 }
 
 /* Lightbox / modal */
@@ -97,6 +102,7 @@
   box-shadow: 0 30px 80px rgba(2,8,23,0.5);
   display: flex;
   flex-direction: column;
+  
 }
 .lightbox-media {
   width: 100%;
@@ -133,10 +139,10 @@
   /* content container that visually overlaps the hero by using negative margin
      and internal padding. Keeps the gallery interactive while matching About page. */
   position: relative;
-  margin-top: 0px; /* reduce overlap */
-  padding: 36px 0 24px; /* shrink padding so box is tighter */
+  margin-top: 0px;
+  padding: 36px 0 24px;
   background: rgba(255,255,255,0.96);
-  z-index: 1; /* sits above hero (z-index:0) but container (.container) inside uses z-index:2 from about.css, so content remains above */
+  z-index: 1;
 }
 
 @media (max-width: 600px) {
