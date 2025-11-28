@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="CSS/donate.css">
 
-    <!-- Google Translate Integration -->
     <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({
@@ -49,30 +48,22 @@
             </header>
 
             <div class="dropdown">
-                <!-- kept empty here; about page populates dropdown content separately -->
             </div>
             </div>
 
-            <div class="intro-section">
-                <video autoplay muted loop playsinline class="video">
-                    <source src="Videos/gergesenonCarRide.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="intro-section" style="background: linear-gradient(135deg, #20B7E1 0%, #0d8caa 100%);">
+                <div class="overlay" style="background: none;"></div>
 
-                <div class="overlay"></div>
-
-                <div class="intro-text" style="top: 25%;">
-                    <p class="initialText">Support Gergesenon Homeless Shelter</p>
+                <div class="intro-text" style="top: 35%;">
+                    <p class="initialText" style="color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.2);">Support Our Mission</p>
                 </div>
             </div>
 
             
 
-                <!-- place donation bubble inside hero so it's visible above overlay -->
                 <div class="donation-hero-wrap">
                     <div class="donation-form-container">
                             <div class="donation-bubble">
-                                    <!-- PayPal hosted button form centered in the bubble -->
                                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                         <input type="hidden" name="cmd" value="_s-xclick" />
                                         <input type="hidden" name="hosted_button_id" value="NBL2Q7Z5RAD98" />
@@ -83,17 +74,6 @@
                     </div>
                 </div>
             </main>
-
-            <main class="donation-container">
-                    <div class="donation-header" style="display:none;">
-                            <h1>Support Gergesenon Homeless Shelter</h1>
-                            <p>Your donation helps us provide shelter, support, and hope to those in need.</p>
-                    </div>
-
-                    <div class="donation-footer">
-                            <p>Your donation is secure and encrypted. Tax receipts will be emailed upon successful donation.</p>
-                            <div class="secure-badges">
-                                    <img src="Images/secure-payment.png" alt="Secure Payment">
-                            </div>
-                    </div>
-            </main>
+        </div>
+    </body>
+</html>
