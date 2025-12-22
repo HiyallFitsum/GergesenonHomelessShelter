@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Gergesenon Mental Institute</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+  <link rel="stylesheet" type="text/css" href="CSS/styles.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <!-- Google Translate Integration -->
@@ -34,7 +34,7 @@
   <div class="header-container">
     <header class="header">
       <a href="index.html"> 
-        <img src="../Images/gergesenonLogo.png" alt="Gergesenon Logo" class="logo" style="margin-right: 1.5rem;">
+        <img src="Images/gergesenonLogo.png" alt="Gergesenon Logo" class="logo" style="margin-right: 1.5rem;">
       </a> 
       <div class="name">
         <h1 class="mainTitle">Gergesenon Mental Institute</h1>
@@ -43,13 +43,13 @@
       
       <nav class="nav-links">
         <a class="nav-divider">|</a>
-        <a href="about.html" class="nav-item">WHO WE ARE</a>
+        <a href="about.html" class="nav-item" data-dropdown="who-we-are">WHO WE ARE</a>
         <a class="nav-divider">|</a>
-          <a href="whatWeDo.html" class="nav-item">WHAT WE DO</a>
+          <a href="whatWeDo.html" class="nav-item" data-dropdown="what-we-do">WHAT WE DO</a>
         <a class="nav-divider">|</a>
-        <a href="volunteer.html" class="nav-item">VOLUNTEER</a>
+        <a href="volunteer.html" class="nav-item" data-dropdown="volunteer">VOLUNTEER</a>
         <a class="nav-divider">|</a>
-        <a href="donate.html" class="nav-item">SUPPORT GERGESENON</a>
+        <a href="donate.html" class="nav-item" data-dropdown="support">SUPPORT GERGESENON</a>
         <a class="nav-divider">|</a>
         <div class="translate-container">
           <div id="google_translate_element"></div>
@@ -57,13 +57,48 @@
       </nav>
     </header>
 
-    <div class="dropdown">
+    <!-- WHO WE ARE Dropdown -->
+    <div class="dropdown-who-we-are">
       <div class="extraInfo" style="margin-left: 35rem;">
-        <img class="sampleImg" src="../Images/gergesenonMelesSpeaking.jpg" alt="Meles Speaking">
+        <img class="sampleImg" src="Images/gergesenonMelesSpeaking.jpg" alt="Meles Speaking">
         <div class="dropLinks">
-          <a class="dropLinkItem" >WHO WE ARE</a>
-          <a class="dropLinkItem" >OUR TEAM</a>
-          <a class="dropLinkItem" >OUR HISTORY</a>
+          <a class="dropLinkItem">Our Team</a>
+          <a class="dropLinkItem">Our History</a>
+          <a class="dropLinkItem">Mission</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT WE DO Dropdown -->
+    <div class="dropdown-what-we-do">
+      <div class="extraInfo" style="margin-left: 35rem;">
+        <img class="sampleImg" src="Images/gergesenonAbout.jpg" alt="What We Do">
+        <div class="dropLinks">
+          <a class="dropLinkItem">Gallery</a>
+          <a class="dropLinkItem">Certifications & Recognitions</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- VOLUNTEER Dropdown -->
+    <div class="dropdown-volunteer">
+      <div class="extraInfo" style="margin-left: 35rem;">
+        <img class="sampleImg" src="Images/gergesenonGroup.jpg" alt="Volunteer">
+        <div class="dropLinks">
+          <a class="dropLinkItem">How to Volunteer</a>
+          <a class="dropLinkItem">Requirements</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPORT GERGESENON Dropdown -->
+    <div class="dropdown-support">
+      <div class="extraInfo" style="margin-left: 35rem;">
+        <img class="sampleImg" src="Images/gergesenonEthiopiaPoverty.jpg" alt="Support">
+        <div class="dropLinks">
+          <a class="dropLinkItem">Donate</a>
+          <a class="dropLinkItem">Sponsorships</a>
+          <a class="dropLinkItem">Partners</a>
         </div>
       </div>
     </div>
@@ -71,7 +106,7 @@
   
   <div class="intro-section">
     <video autoplay muted loop playsinline class="video">
-      <source src="../Videos/gergesenonOutside.mp4" type="video/mp4">
+      <source src="Videos/gergesenonOutside.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 
@@ -87,15 +122,15 @@
   <div class="intro-dividers">
     <a class="divider">
       <h1>POVERTY:</h1>
-      <img src="../Images/gergesenonEthiopiaPoverty.jpg" alt="Gergesenon Poverty" class="pictureDividers">
+      <img src="Images/gergesenonEthiopiaPoverty.jpg" alt="Gergesenon Poverty" class="pictureDividers">
     </a>
     <a class="divider">
       <h1>MALNUTRITION:</h1>
-      <img src="../Images/gergesenonEthiopiaMalnutrition.jpg" alt="Gergesenon Malnutrition" class="pictureDividers">
+      <img src="Images/gergesenonEthiopiaMalnutrition.jpg" alt="Gergesenon Malnutrition" class="pictureDividers">
     </a>
     <a class="divider">
       <h1>MENTAL DISORDER:</h1>
-      <img src="../Images/gergesenonEthiopiaMentalDisorder2.jpg" alt="Gergesenon Mental Disorders" class="pictureDividers">
+      <img src="Images/gergesenonEthiopiaMentalDisorder2.jpg" alt="Gergesenon Mental Disorders" class="pictureDividers">
     </a>
   </div>
 
