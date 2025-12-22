@@ -150,3 +150,46 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Certifications and Recognitions Section */
+.certandrec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  max-width: 1200px;
+  gap: 1.5rem;
+  margin: 1.25rem auto 0;
+  align-items: center;
+  justify-items: center;
+}
+
+.certandrec-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(18,52,71,0.06);
+  overflow: hidden;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.28s cubic-bezier(.2,.8,.2,1), box-shadow 0.28s;
+  min-height: 220px;
+}
+
+.certandrec-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(18,52,71,0.10);
+}
+
+.certandrec-image {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .certandrec-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
