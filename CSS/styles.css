@@ -31,7 +31,7 @@ body {
   align-items: center;
   padding: 0.5rem 1rem;
   background: #e7e7e7de;
-  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 100;
   white-space: nowrap;
   transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
@@ -208,17 +208,54 @@ body {
   color: #225054;
 }
 
-.dropdown {
+.dropdown-who-we-are,
+.dropdown-what-we-do,
+.dropdown-volunteer,
+.dropdown-support {
   position: fixed;
   z-index: 1000;
   top: 7rem;
   width: 100%;
   background: #e7e7e7de;
-  /* box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6); */
   opacity: 0;
   transform: translateY(-10px);
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Show only the appropriate dropdown on nav item hover */
+.header-container:has(.nav-item[data-dropdown="who-we-are"]:hover) .dropdown-who-we-are {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.header-container:has(.nav-item[data-dropdown="what-we-do"]:hover) .dropdown-what-we-do {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.header-container:has(.nav-item[data-dropdown="volunteer"]:hover) .dropdown-volunteer {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.header-container:has(.nav-item[data-dropdown="support"]:hover) .dropdown-support {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* Keep dropdown visible when hovering over it */
+.dropdown-who-we-are:hover,
+.dropdown-what-we-do:hover,
+.dropdown-volunteer:hover,
+.dropdown-support:hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
 }
 
 .extraInfo {
@@ -249,13 +286,6 @@ body {
 
 .dropLinkItem:hover {
   color: #225054;
-}
-
-.header-container:has(.nav-item:hover) .dropdown,
-.dropdown:hover {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
 }
 
 .video {
