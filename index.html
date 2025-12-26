@@ -21,65 +21,82 @@
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <script>
-  window.addEventListener("scroll", function () {
-    const header = document.querySelector(".header");
-    if (window.scrollY <= 50) {
-      header.classList.add("transparent");
-    } else {
-      header.classList.remove("transparent");
-    }
-  });
-
-  // Position dropdowns directly under their corresponding nav items
-  const DROPDOWN_OFFSET = -200; // Adjust this value to move dropdowns left (-) or right (+)
-  
-  function positionDropdowns() {
-    const navItems = document.querySelectorAll(".nav-item");
-    navItems.forEach(item => {
-      const dropdownType = item.getAttribute("data-dropdown");
-      const dropdown = document.querySelector(`.dropdown-${dropdownType}`);
-      if (dropdown) {
-        const rect = item.getBoundingClientRect();
-        const left = rect.left + window.scrollX + DROPDOWN_OFFSET;
-        dropdown.style.left = left + "px";
-        dropdown.style.width = "auto";
+  document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector(".header");
+      if (window.scrollY <= 50) {
+        header.classList.add("transparent");
+      } else {
+        header.classList.remove("transparent");
       }
     });
-  }
 
-  // Handle dropdown visibility with JavaScript
-  const navItems = document.querySelectorAll(".nav-item");
-  navItems.forEach(navItem => {
-    const dropdownType = navItem.getAttribute("data-dropdown");
-    const dropdown = document.querySelector(`.dropdown-${dropdownType}`);
+    // Position dropdowns directly under their corresponding nav items
+    const DROPDOWN_OFFSET = -175 // Adjust this value to move dropdowns left (-) or right (+)
     
-    if (dropdown) {
-      navItem.addEventListener("mouseenter", function() {
-        dropdown.classList.add("show");
-      });
-      
-      navItem.addEventListener("mouseleave", function() {
-        setTimeout(() => {
-          if (!dropdown.matches(":hover")) {
-            dropdown.classList.remove("show");
-          }
-        }, 50);
-      });
-      
-      dropdown.addEventListener("mouseenter", function() {
-        dropdown.classList.add("show");
-      });
-      
-      dropdown.addEventListener("mouseleave", function() {
-        dropdown.classList.remove("show");
+    function positionDropdowns() {
+      const navItems = document.querySelectorAll(".nav-item");
+      navItems.forEach(item => {
+        const dropdownType = item.getAttribute("data-dropdown");
+        const dropdown = document.querySelector(`.dropdown-${dropdownType}`);
+        if (dropdown) {
+          const rect = item.getBoundingClientRect();
+          const left = rect.left + window.scrollX + DROPDOWN_OFFSET;
+          dropdown.style.left = left + "px";
+          dropdown.style.width = "auto";
+        }
       });
     }
+
+    // Handle dropdown visibility with JavaScript
+    const navItems = document.querySelectorAll(".nav-item");
+    let currentHideTimeout;
+    
+    console.log("Nav items found:", navItems.length);
+    
+    navItems.forEach(navItem => {
+      const dropdownType = navItem.getAttribute("data-dropdown");
+      const dropdown = document.querySelector(`.dropdown-${dropdownType}`);
+      
+      console.log("Setting up dropdown:", dropdownType, "element found:", !!dropdown);
+      
+      if (dropdown) {
+        navItem.addEventListener("mouseenter", function() {
+          console.log("Hovering over:", dropdownType);
+          clearTimeout(currentHideTimeout);
+          // Hide all dropdowns first
+          document.querySelector(".dropdown-who-we-are")?.classList.remove("show");
+          document.querySelector(".dropdown-what-we-do")?.classList.remove("show");
+          document.querySelector(".dropdown-volunteer")?.classList.remove("show");
+          document.querySelector(".dropdown-support")?.classList.remove("show");
+          // Show only this one
+          dropdown.classList.add("show");
+          console.log("Added show class to:", dropdownType);
+        });
+        
+        navItem.addEventListener("mouseleave", function() {
+          currentHideTimeout = setTimeout(() => {
+            dropdown.classList.remove("show");
+          }, 100);
+        });
+        
+        dropdown.addEventListener("mouseenter", function() {
+          clearTimeout(currentHideTimeout);
+        });
+        
+        dropdown.addEventListener("mouseleave", function() {
+          currentHideTimeout = setTimeout(() => {
+            dropdown.classList.remove("show");
+          }, 100);
+        });
+      }
+    });
+
+    // Position on load and resize
+    window.addEventListener("load", positionDropdowns);
+    window.addEventListener("resize", positionDropdowns);
+    positionDropdowns(); // Call once immediately
   });
-
-  // Position on load and resize
-  window.addEventListener("load", positionDropdowns);
-  window.addEventListener("resize", positionDropdowns);
-
 </script>
 <body style="background-color: #ffffffc4;">
   <div class="header-container">
@@ -113,9 +130,9 @@
       <div class="extraInfo">
         <img class="sampleImg" src="Images/gergesenonMelesSpeaking.jpg" alt="Meles Speaking">
         <div class="dropLinks">
-          <a class="dropLinkItem">Our Team</a>
-          <a class="dropLinkItem">Our History</a>
-          <a class="dropLinkItem">Mission</a>
+          <a href="about.html#team" class="dropLinkItem">Our Team</a>
+          <a href="about.html#history" class="dropLinkItem">Our History</a>
+          <a href="about.html#mission" class="dropLinkItem">Mission</a>
         </div>
       </div>
     </div>
@@ -125,8 +142,8 @@
       <div class="extraInfo">
         <img class="sampleImg" src="Images/gergesenonAbout.jpg" alt="What We Do">
         <div class="dropLinks">
-          <a class="dropLinkItem">Gallery</a>
-          <a class="dropLinkItem">Certifications & Recognitions</a>
+          <a href="whatWeDo.html#gallery" class="dropLinkItem">Gallery</a>
+          <a href="whatWeDo.html#certifications" class="dropLinkItem">Certifications & Recognitions</a>
         </div>
       </div>
     </div>
@@ -136,8 +153,8 @@
       <div class="extraInfo">
         <img class="sampleImg" src="Images/gergesenonGroup.jpg" alt="Volunteer">
         <div class="dropLinks">
-          <a class="dropLinkItem">How to Volunteer</a>
-          <a class="dropLinkItem">Requirements</a>
+          <a href="volunteer.html#how-to-volunteer" class="dropLinkItem">How to Volunteer</a>
+          <a href="volunteer.html#requirements" class="dropLinkItem">Requirements</a>
         </div>
       </div>
     </div>
@@ -147,9 +164,9 @@
       <div class="extraInfo">
         <img class="sampleImg" src="Images/gergesenonEthiopiaPoverty.jpg" alt="Support">
         <div class="dropLinks">
-          <a class="dropLinkItem">Donate</a>
-          <a class="dropLinkItem">Sponsorships</a>
-          <a class="dropLinkItem">Partners</a>
+          <a href="donate.html#donate" class="dropLinkItem">Donate</a>
+          <a href="donate.html#sponsorships" class="dropLinkItem">Sponsorships</a>
+          <a href="donate.html#partners" class="dropLinkItem">Partners</a>
         </div>
       </div>
     </div>

@@ -22,64 +22,76 @@
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <script>
-  window.addEventListener("scroll", function () {
-    const header = document.querySelector(".header");
-    if (window.scrollY <= 50) {
-      header.classList.add("transparent");
-    } else {
-      header.classList.remove("transparent");
-    }
-  });
-
-  // Position dropdowns directly under their corresponding nav items
-  const DROPDOWN_OFFSET = -200; // Adjust this value to move dropdowns left (-) or right (+)
-  
-  function positionDropdowns() {
-    const navItems = document.querySelectorAll(".nav-item");
-    navItems.forEach(item => {
-      const dropdownType = item.getAttribute("data-dropdown");
-      const dropdown = document.querySelector(`.dropdown-${dropdownType}`);
-      if (dropdown) {
-        const rect = item.getBoundingClientRect();
-        const left = rect.left + window.scrollX + DROPDOWN_OFFSET;
-        dropdown.style.left = left + "px";
-        dropdown.style.width = "auto";
+  document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector(".header");
+      if (window.scrollY <= 50) {
+        header.classList.add("transparent");
+      } else {
+        header.classList.remove("transparent");
       }
     });
-  }
 
-  // Handle dropdown visibility with JavaScript
-  const navItems = document.querySelectorAll(".nav-item");
-  navItems.forEach(navItem => {
-    const dropdownType = navItem.getAttribute("data-dropdown");
-    const dropdown = document.querySelector(`.dropdown-${dropdownType}`);
+    // Position dropdowns directly under their corresponding nav items
+    const DROPDOWN_OFFSET = -200; // Adjust this value to move dropdowns left (-) or right (+)
     
-    if (dropdown) {
-      navItem.addEventListener("mouseenter", function() {
-        dropdown.classList.add("show");
-      });
-      
-      navItem.addEventListener("mouseleave", function() {
-        setTimeout(() => {
-          if (!dropdown.matches(":hover")) {
-            dropdown.classList.remove("show");
-          }
-        }, 50);
-      });
-      
-      dropdown.addEventListener("mouseenter", function() {
-        dropdown.classList.add("show");
-      });
-      
-      dropdown.addEventListener("mouseleave", function() {
-        dropdown.classList.remove("show");
+    function positionDropdowns() {
+      const navItems = document.querySelectorAll(".nav-item");
+      navItems.forEach(item => {
+        const dropdownType = item.getAttribute("data-dropdown");
+        const dropdown = document.querySelector(`.dropdown-${dropdownType}`);
+        if (dropdown) {
+          const rect = item.getBoundingClientRect();
+          const left = rect.left + window.scrollX + DROPDOWN_OFFSET;
+          dropdown.style.left = left + "px";
+          dropdown.style.width = "auto";
+        }
       });
     }
-  });
 
-  // Position on load and resize
-  window.addEventListener("load", positionDropdowns);
-  window.addEventListener("resize", positionDropdowns);
+    // Handle dropdown visibility with JavaScript
+    const navItems = document.querySelectorAll(".nav-item");
+    let currentHideTimeout;
+    
+    navItems.forEach(navItem => {
+      const dropdownType = navItem.getAttribute("data-dropdown");
+      const dropdown = document.querySelector(`.dropdown-${dropdownType}`);
+      
+      if (dropdown) {
+        navItem.addEventListener("mouseenter", function() {
+          clearTimeout(currentHideTimeout);
+          // Hide all dropdowns first
+          document.querySelector(".dropdown-who-we-are")?.classList.remove("show");
+          document.querySelector(".dropdown-what-we-do")?.classList.remove("show");
+          document.querySelector(".dropdown-volunteer")?.classList.remove("show");
+          document.querySelector(".dropdown-support")?.classList.remove("show");
+          // Show only this one
+          dropdown.classList.add("show");
+        });
+        
+        navItem.addEventListener("mouseleave", function() {
+          currentHideTimeout = setTimeout(() => {
+            dropdown.classList.remove("show");
+          }, 100);
+        });
+        
+        dropdown.addEventListener("mouseenter", function() {
+          clearTimeout(currentHideTimeout);
+        });
+        
+        dropdown.addEventListener("mouseleave", function() {
+          currentHideTimeout = setTimeout(() => {
+            dropdown.classList.remove("show");
+          }, 100);
+        });
+      }
+    });
+
+    // Position on load and resize
+    window.addEventListener("load", positionDropdowns);
+    window.addEventListener("resize", positionDropdowns);
+    positionDropdowns(); // Call once immediately
+  });
 </script>
 <body>
   <div class="header-container">
